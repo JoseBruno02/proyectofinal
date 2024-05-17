@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/factura.css">
+    
+    <title>Factura</title>
+    <link rel="icon" href="img/descarga.png">
+
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <img src="img/images.png" alt="">
+    
+    
+    <title>Factura</title>
+    <a href="pdf/pdf examen final 2.pdf" target="_blank"></a>
+
+
+<script>
+
+
+
+  var idEstudiante;
+  var nombreEstudiante;
+  var carreraEstudiante; 
+  var telefonoEstudiante;
+  var nombreProducto;
+  var precio;
+  var cantidad;
+  var total;
+  var subtotal;
+  var p=0;
+  var iva;
+  var subtotalP=0;
+  var fecha= new Date();
+  var imprimir;
+  var numero_Factura=0;
+
+
+function generarFactura(){
+
+  idEstudiante=document.getElementById("idEstudiante").value;
+  nombreEstudiante=document.getElementById("nombreEstudiante").value;
+  carreraEstudiante=document.getElementById("carreraEstudiante").value;
+  telefonoEstudiante=document.getElementById("telefonoEstudiante").value;
+
+ 
+  
+  document.write(fecha.getDate() + "/" + (fecha.getMonth()+1) + "/" + fecha.getFullYear()+"</br>"+"</br>"+"</br>");
+  document.write("<h1>---------------------FACTURA--------------------<h1>");
+  document.write("Identificacion del Estudiante:"+'&nbsp;'+idEstudiante+"<br>"+"<br>");
+  document.write("Nombre del Estudiante:"+'&nbsp;'+nombreEstudiante+"<br>"+"<br>");
+  document.write("Carrera:"+'&nbsp;'+carreraEstudiante+"<br>"+"<br>");
+  document.write("Telefono:"+'&nbsp;'+telefonoEstudiante+"<br>"+"<br>"+"<br>");
+  
+ 
+for (i = 0;i <1; i++) {
+
+document.write("<h1>--------------------------------------------------------<h1>");
+nombreProducto=prompt('Ingrese Nombre del Producto');
+document.write("Nombre Producto:  "+'&nbsp;'+nombreProducto+'&nbsp;'+'&nbsp;');
+
+precio=parseFloat(prompt('Ingrese Precio'));
+document.write("Precio:  "+'&nbsp;'+precio+'&nbsp;'+'&nbsp;');
+
+cantidad=parseInt(prompt('Ingrese Cantidad'));
+document.write("Cantidad:  "+'&nbsp;'+cantidad+'&nbsp;'+'&nbsp;');
+
+
+
+
+nombreProducto=prompt('Ingrese "*" Para terminar o cualquier tecla para continuar');
+
+  subtotal=precio*cantidad;
+  document.write("<h1>--------------------------------------------------------<h1>");
+  subtotalP=subtotalP+parseInt(subtotal);
+  iva=subtotalP*0.18;
+  total=subtotalP+iva;
+  
+
+  document.write("SubTotal :"+'&nbsp;'+subtotal+"<br>"+"<br>"+"<br>");
+  
+
+} 
+document.write("Subtotal : "+'&nbsp;'+subtotalP+"<br>"+"<br>");
+document.write("Iva 18% :"+'&nbsp;'+iva+"<br>"+"<br>");
+document.write("Total :"+'&nbsp;'+total+"<br>"+"<br>");
+document.write('<button onclick="window.print()">Imprimir Factura</button>');
+
+}
+
+generarFactura()
+
+
+</script>
+
+
+<h2>Factura</h2>
+
+</head>
+<body>
+  
+    Numero Id <br><input type="text" name="idEstudiante" id="idEstudiante" placeholder="Estudiante"/><br><br>
+    Nombre Estudiante <br><input type="text" name="nombreEstudiante" id="nombreEstudiante" placeholder="Nombre"/><br><br>
+    Carrera <br><input type="text" name="carreraEstudiante" id="carreraEstudiante" placeholder="Carrera"/><br><br>
+    Telefono <br><input type="text" name="telefonoEstudiante" id="telefonoEstudiante" placeholder="Telefono"/><br><br>
+   <input type="button"  name="Continuar" onclick="generarFactura()"   value="Continuar"/>
+   <a href="pdf/pdf examen final 2.pdf" target="_blank">
+    <img src="img/img15.jpg" width="50px" alt="">
+   </a>
+</body>
+</html>
